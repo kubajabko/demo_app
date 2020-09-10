@@ -3,13 +3,12 @@ package com.heroku.kubajabkodemoapp.persistence;
 import com.heroku.kubajabkodemoapp.model.User;
 import org.hibernate.Transaction;
 import org.springframework.stereotype.Component;
-
 import java.util.Collection;
 
 @Component("userService")
 public class UserService {
 
-    DatabaseConnector connector;
+    private DatabaseConnector connector;
 
     public UserService() {
         connector = DatabaseConnector.getInstance();

@@ -4,11 +4,11 @@ import org.hibernate.Session;
 
 public class DatabaseConnector {
 
-    protected static com.heroku.kubajabkodemoapp.persistence.DatabaseConnector instance = null;
+    protected static DatabaseConnector instance = null;
 
-    public static com.heroku.kubajabkodemoapp.persistence.DatabaseConnector getInstance() {
+    public static DatabaseConnector getInstance() {
         if (instance == null) {
-            instance = new com.heroku.kubajabkodemoapp.persistence.DatabaseConnector();
+            instance = new DatabaseConnector();
         }
         return instance;
     }

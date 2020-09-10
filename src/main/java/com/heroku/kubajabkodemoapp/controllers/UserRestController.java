@@ -15,6 +15,9 @@ public class UserRestController {
 
     @Autowired
     UserService userService;
+    public void setUserService(UserService userService){
+        this.userService=userService;
+    }
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public ResponseEntity<?> getAll() {

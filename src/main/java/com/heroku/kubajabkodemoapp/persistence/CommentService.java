@@ -6,7 +6,6 @@ import org.hibernate.Query;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import java.util.Collection;
 
 @Component("commentService")

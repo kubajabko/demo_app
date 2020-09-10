@@ -22,9 +22,6 @@ public class Comment {
     private String content;
 
     @Column
-    private User creator;
-
-    @Column
     private String date;
 
     @JsonIgnore
@@ -33,10 +30,6 @@ public class Comment {
 
     public long getId() {
         return id;
-    }
-
-    public User getCreator() {
-        return creator;
     }
 
     public String getTitle() {
@@ -53,10 +46,6 @@ public class Comment {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public void setCreator(User creator) {
-        this.creator = creator;
     }
 
     public void setTitle(String title) {
