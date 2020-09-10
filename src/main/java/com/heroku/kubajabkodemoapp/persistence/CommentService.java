@@ -45,18 +45,18 @@ public class CommentService {
         transaction.commit();
     }
 
-    public User addUser(String userLogin, Comment comment) {
+    public User addLike(String userLogin, Comment comment) {
         User user = userService.findByLogin(userLogin);
-        comment.addUser(user);
+        comment.addLike(user);
         Transaction transaction = connector.getSession().beginTransaction();
         connector.getSession().save(comment);
         transaction.commit();
         return user;
     }
 
-    public void removeUser(String userLogin, Comment comment) {
+    public void removeLike(String userLogin, Comment comment) {
         User user = userService.findByLogin(userLogin);
-        comment.removeUser(user);
+        comment.removeLike(user);
         Transaction transaction = connector.getSession().beginTransaction();
         connector.getSession().save(comment);
         transaction.commit();

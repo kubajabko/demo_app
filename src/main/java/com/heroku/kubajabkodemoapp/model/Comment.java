@@ -22,6 +22,9 @@ public class Comment {
     private String content;
 
     @Column
+    private User creator;
+
+    @Column
     private String date;
 
     @JsonIgnore
@@ -30,6 +33,10 @@ public class Comment {
 
     public long getId() {
         return id;
+    }
+
+    public User getCreator() {
+        return creator;
     }
 
     public String getTitle() {
@@ -48,6 +55,10 @@ public class Comment {
         this.id = id;
     }
 
+    public void setCreator(User creator) {
+        this.creator = creator;
+    }
+
     public void setTitle(String title) {
         this.title = title;
     }
@@ -60,15 +71,15 @@ public class Comment {
         this.date = date;
     }
 
-    public void addUser(User user) {
+    public void addLike(User user) {
         this.users.add(user);
     }
 
-    public void removeUser(User user) {
+    public void removeLike(User user) {
         this.users.remove(user);
     }
 
-    public Collection<User> getParticipants() {
+    public Collection<User> getLikes() {
         return users;
     }
 }
