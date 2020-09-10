@@ -7,6 +7,7 @@
             <h2>Witaj {{ authenticatedUsername }}!
                 <a @click="logout()" class="float-right  button-outline button">Wyloguj</a>
             </h2>
+            <comments-page :username="authenticatedUsername"></comments-page>
         </div>
         <div v-else>
             <button @click="registering = false" :class="registering ? 'button-outline' : ''">Loguję się</button>
@@ -20,10 +21,11 @@
 <script>
     import "milligram";
     import LoginForm from "./LoginForm";
+    import CommentsPage from "./comments/CommentsPage";
     import Vue from "vue";
 
     export default {
-        components: {LoginForm},
+        components: {LoginForm, CommentsPage},
         data() {
             return {
                 authenticatedUsername: "",
