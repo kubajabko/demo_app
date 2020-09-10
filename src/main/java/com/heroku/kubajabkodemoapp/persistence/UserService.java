@@ -2,6 +2,8 @@ package com.heroku.kubajabkodemoapp.persistence;
 
 import com.heroku.kubajabkodemoapp.model.User;
 import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import java.util.Collection;
 
@@ -9,6 +11,9 @@ import java.util.Collection;
 public class UserService {
 
     private DatabaseConnector connector;
+
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
     public UserService() {
         connector = DatabaseConnector.getInstance();
@@ -23,7 +28,8 @@ public class UserService {
     }
 
     public User add(User user) {
-        user.setPassword(user.getPassword());
+        String hashedPassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(hashedPassword);
         Transaction transaction = connector.getSession().beginTransaction();
         connector.getSession().save(user);
         transaction.commit();
